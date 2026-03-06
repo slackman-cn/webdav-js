@@ -1,4 +1,4 @@
-FROM httpd
+FROM httpd:alpine
 LABEL \
     org.opencontainers.image.title="Httpd webdav" \
     org.opencontainers.image.vendor="Ubuntu build system" \
