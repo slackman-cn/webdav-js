@@ -42,5 +42,5 @@ jobs:
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
-          name:  zvec-latest
+          name:  webdav-file
           path: ${{github.workspace}}/webdav-latest.tar.gz
