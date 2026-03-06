@@ -1,4 +1,4 @@
-FROM httpd:2.4.43-alpine
+FROM httpd
 
 RUN \
   apk add --upgrade --update-cache curl apr-util && \
@@ -70,5 +70,7 @@ RUN \
 \
   # clean up
   apk del curl;
+
+COPY dist /var/www/html/
 
 EXPOSE 80
