@@ -17,13 +17,6 @@ RUN \
     sleep 1; \
   done && \
 \
-  # add fonts
-  for font in notoserif/NotoSerif-Regular.ttf unlock/Unlock-Regular.ttf blackandwhitepicture/BlackAndWhitePicture-Regular.ttf indieflower/IndieFlower-Regular.ttf; do \
-    while ! curl -m 10 -L -o "/var/www/html/$(basename $font)" "https://cdn.jsdelivr.net/gh/google/fonts/ofl/$font"; do \
-      sleep 1; \
-    done \
-  done && \
-\
   # add video
   while ! curl -m 10 -L -o /var/www/html/video.mp4 "https://ik.imagekit.io/demo/sample-video.mp4"; do \
     sleep 1; \
