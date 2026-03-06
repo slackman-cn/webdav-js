@@ -12,6 +12,9 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+env:
+  PUPPETEER_SKIP_DOWNLOAD: 1
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -28,9 +31,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v1
         with:
-          node-version: 16
-      - run: make build
-      - run: make test
+          node-version: 18
+      - run: npm install
+      - run: npm run build
 
       - name: Check Server Performance
         run: |
@@ -60,7 +63,7 @@ jobs:
           context: .
           platforms: linux/amd64
           push: true
-          tags: ghcr.io/slackman-cn/webdav:latest
+          tags: ghcr.io/slackman-cn/httpd-webdav:latest
           provenance: false # Disable provenance to avoid unknown/unknown
           sbom: false       # Disable sbom to avoid unknown/unknown
           outputs: type=image,name=target
